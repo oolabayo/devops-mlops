@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 SYMBOL="BTCUSDT"
 INTERVAL="30m"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
