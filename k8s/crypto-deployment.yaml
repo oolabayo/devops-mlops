@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crypto-fetcher
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crypto-fetcher
+  template:
+    metadata:
+      labels:
+        app: crypto-fetcher
+    spec:
+      containers:
+        - name: crypto-fetcher
+          image: crypto-fetcher
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: crypto-config
+
+

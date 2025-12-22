@@ -1,0 +1,10 @@
+services:
+  crypto-fetcher:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: crypto_fetcher
+    restart: unless-stopped
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
