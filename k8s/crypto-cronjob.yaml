@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: crypto-fetcher
+spec:
+  schedule: "0 * * * *"   # every hour
+  jobTemplate:
+    spec:
+      backoffLimit: 2
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: crypto-fetcher
+            image: dockerhub-cyberdexa/crypto-fetcher:latest
+            imagePullPolicy: IfNotPresent
+            envFrom:
+            - configMapRef:
+                name: crypto-config
+            - secretRef:
+                name: crypto-secrets

@@ -25,5 +25,5 @@ if [ $? -eq 0 ]; then
 else
   echo "[$(date)] ERROR: Download failed" >> "$LOG_DIR/fetch.log"
 fi
-  sleep 1800
+  sleep 3600
 done  

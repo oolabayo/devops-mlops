@@ -19,5 +19,32 @@ spec:
           envFrom:
             - configMapRef:
                 name: crypto-config
+          env:
+                - name: BINANCE_API_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: crypto-secrets
+                      key: BINANCE_API_KEY
+                - name: BINANCE_API_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      name: crypto-secrets
+                      key: BINANCE_API_SECRET
 
+
+        
+          containers:
+        - name: crypto-fetcher
+          image: crypto-fetcher
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+
+              
+
+        
 
