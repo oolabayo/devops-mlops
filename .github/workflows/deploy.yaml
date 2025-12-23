@@ -19,9 +19,10 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build and Push Image
-      uses: docker/build-push-action@v5
-      with:
+    uses: docker/build-push-action@v5
+    with:
         context: .
+        file: docker/Dockerfile
         push: true
         tags: yourdockerhubuser/crypto-fetcher:latest
 
