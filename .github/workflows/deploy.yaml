@@ -25,7 +25,7 @@ jobs:
           context: .
           file: docker/Dockerfile
           push: true
-          tags: yourdockerhubuser/crypto-fetcher:latest
+          tags: cyberdexa/crypto-fetcher:latest
 
       - name: Setup kubectl
         uses: azure/setup-kubectl@v4
